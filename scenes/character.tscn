@@ -1,0 +1,98 @@
+[gd_scene load_steps=16 format=3 uid="uid://bmykfnydujnw5"]
+
+[ext_resource type="Script" uid="uid://d4hmhmhk0idfp" path="res://scripts/character.gd" id="1_7eonc"]
+[ext_resource type="PackedScene" uid="uid://bl6xbcphof603" path="res://scenes/weapon.tscn" id="1_dp8ca"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/idle_1.png" id="2_0lw5n"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/idle_2.png" id="3_2cgup"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/idle_3.png" id="4_a5ia6"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/idle_4.png" id="5_0dpix"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/walk_1.png" id="6_irmqu"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/walk_2.png" id="7_7eonc"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/walk_3.png" id="8_50cep"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/walk_4.png" id="9_8yvht"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/walk_5.png" id="10_lagn4"]
+[ext_resource type="Texture2D" path="res://assets/Tiny Rangers Mountain/Player/Super/Blu/walk_6.png" id="11_x8k1v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hyy3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0lw5n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2cgup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a5ia6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0dpix")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_irmqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7eonc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_50cep")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8yvht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lagn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_x8k1v")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_50cep"]
+script/source = "extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irmqu"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Character" type="AnimatableBody2D"]
+script = ExtResource("1_7eonc")
+
+[node name="Weapon" parent="." instance=ExtResource("1_dp8ca")]
+position = Vector2(15, 8)
+
+[node name="body" type="AnimatedSprite2D" parent="."]
+position = Vector2(-9, -6)
+sprite_frames = SubResource("SpriteFrames_2hyy3")
+animation = &"walk"
+frame_progress = 0.43482324
+script = SubResource("GDScript_50cep")
+
+[node name="hands" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, 1)
+sprite_frames = SubResource("SpriteFrames_irmqu")
+animation = &"idle"
+frame_progress = 0.8189961

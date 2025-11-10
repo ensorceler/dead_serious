@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://jmjsf7ufkyxb"]
+
+[ext_resource type="Script" uid="uid://qn6l2baap8ew" path="res://resources/enemy/enemy_data.gd" id="1_vaoj3"]
+[ext_resource type="SpriteFrames" uid="uid://bfg3u6jkna4vb" path="res://resources/enemy/puncher_spriteframes.tres" id="2_kds7n"]
+
+[resource]
+script = ExtResource("1_vaoj3")
+enemy_type = 1
+enemy_name = "Puncher"
+speed = 15.0
+sprite_frames = ExtResource("2_kds7n")
+scale_factor = 0.6
+sprite_position_offset = Vector2(3, -15)
+metadata/_custom_type_script = "uid://qn6l2baap8ew"

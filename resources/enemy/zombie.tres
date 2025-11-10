@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://cc1je1v6t8qly"]
+
+[ext_resource type="Script" uid="uid://qn6l2baap8ew" path="res://resources/enemy/enemy_data.gd" id="1_eus4r"]
+[ext_resource type="SpriteFrames" uid="uid://ci4j0rw5xrocd" path="res://resources/enemy/zombie_spriteframes.tres" id="2_7644c"]
+
+[resource]
+script = ExtResource("1_eus4r")
+sprite_frames = ExtResource("2_7644c")
+scale_factor = 0.7
+sprite_position_offset = Vector2(0, -10)
+metadata/_custom_type_script = "uid://qn6l2baap8ew"

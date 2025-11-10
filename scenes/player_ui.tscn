@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://btkylempnwcau"]
+
+[ext_resource type="Script" uid="uid://ubqmsie2yo77" path="res://scripts/player_ui.gd" id="1_48xfa"]
+[ext_resource type="Theme" uid="uid://4ikx2hqcab62" path="res://resources/theme/theme.tres" id="1_jkj6h"]
+[ext_resource type="Texture2D" uid="uid://cmn67uv80h11t" path="res://assets/world_assets/GZ2-Weapons_16px.png" id="2_sk4pr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkj6h"]
+bg_color = Color(0.16138223, 0.7040571, 0.47564405, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_bottom_left = 6
+anti_aliasing = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk4pr"]
+atlas = ExtResource("2_sk4pr")
+region = Rect2(34, 68, 26, 8)
+
+[node name="PlayerUI" type="CanvasLayer"]
+script = ExtResource("1_48xfa")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(180, 0)
+offset_right = 180.0
+offset_bottom = 60.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Health" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_jkj6h")
+step = 1.0
+value = 96.0
+
+[node name="Exp" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 27)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_jkj6h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jkj6h")
+value = 30.0
+show_percentage = false
+
+[node name="Weapon" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_jkj6h")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Weapon"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_sk4pr")
+stretch_mode = 4

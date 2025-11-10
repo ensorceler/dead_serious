@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Weapon_Data" load_steps=5 format=3 uid="uid://dj6tqxl2r0dvs"]
+
+[ext_resource type="SpriteFrames" uid="uid://2u5gxtfdcym1" path="res://resources/weapon/uzi_sprite_frames.tres" id="1_acdww"]
+[ext_resource type="Texture2D" uid="uid://cmn67uv80h11t" path="res://assets/world_assets/GZ2-Weapons_16px.png" id="1_cqwes"]
+[ext_resource type="Script" uid="uid://c0ul022xhwad2" path="res://resources/weapon/weapon_data.gd" id="1_p2woo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_555hn"]
+atlas = ExtResource("1_cqwes")
+region = Rect2(113, 19, 14, 10)
+
+[resource]
+script = ExtResource("1_p2woo")
+gun_type = 2
+weapon_scale = 0.3
+fire_rate = 1.0
+damage = 10
+gun_spriteframes = ExtResource("1_acdww")
+gun_animation = "gun"
+shoot_animation = "shoot"
+reload_animation = "reload"
+gun_skin = SubResource("AtlasTexture_555hn")
+metadata/_custom_type_script = "uid://c0ul022xhwad2"

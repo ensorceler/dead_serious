@@ -1,0 +1,85 @@
+[gd_scene load_steps=14 format=3 uid="uid://b4n4lif03fp3d"]
+
+[ext_resource type="Script" uid="uid://df8vbp4q4yort" path="res://scripts/enemy/enemy.gd" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://cvhhgw1pht18i" path="res://scenes/health_bar.tscn" id="2_5uy6h"]
+[ext_resource type="Resource" uid="uid://cc1je1v6t8qly" path="res://resources/enemy/zombie.tres" id="2_c4w8v"]
+[ext_resource type="SpriteFrames" uid="uid://ci4j0rw5xrocd" path="res://resources/enemy/zombie_spriteframes.tres" id="4_5uy6h"]
+[ext_resource type="Script" uid="uid://duj575bmfvv2i" path="res://scripts/enemy/enemy_state_machine.gd" id="5_c4w8v"]
+[ext_resource type="Script" uid="uid://ca64nhxkuq0gg" path="res://scripts/enemy/idle_state.gd" id="6_xwavj"]
+[ext_resource type="Script" uid="uid://iica3asnlvde" path="res://scripts/enemy/walk_state.gd" id="7_ipns3"]
+[ext_resource type="Script" uid="uid://bo8ly1s1woq36" path="res://scripts/enemy/chase_state.gd" id="8_8qclf"]
+[ext_resource type="Script" uid="uid://blkjgyky7hyah" path="res://scripts/enemy/attack_state.gd" id="9_w8i8w"]
+[ext_resource type="Script" uid="uid://bnq2jt6lsu2o7" path="res://scripts/enemy/death_state.gd" id="10_8qclf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+size = Vector2(10, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_md0e3"]
+radius = 7.071068
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p1mj"]
+radius = 112.00446
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_md0e3")
+ATTACK_RANGE = 15
+enemy_data = ExtResource("2_c4w8v")
+
+[node name="HealthBar" parent="." instance=ExtResource("2_5uy6h")]
+offset_left = -6.0
+offset_top = -18.0
+offset_right = 8.0
+offset_bottom = -17.0
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = ExtResource("4_5uy6h")
+animation = &"idle"
+autoplay = "walk"
+frame = 1
+frame_progress = 1.0
+offset = Vector2(5, -15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_md0e3")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_7p1mj")
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_c4w8v")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node2D" parent="StateMachine"]
+script = ExtResource("6_xwavj")
+
+[node name="Walk" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_ipns3")
+
+[node name="Chase" type="Node2D" parent="StateMachine"]
+script = ExtResource("8_8qclf")
+
+[node name="Attack" type="Node2D" parent="StateMachine"]
+script = ExtResource("9_w8i8w")
+
+[node name="Death" type="Node2D" parent="StateMachine"]
+script = ExtResource("10_8qclf")
+
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
+[connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
