@@ -7,7 +7,7 @@ func _init() -> void:
 func enter() -> void:
 	enemy.character_sprite.play("dead")
 	await enemy.character_sprite.animation_finished  # ← Wait for animation to end!
-	queue_free() 
+	
 	
 	print("enter death state")
 	

@@ -1,5 +1,5 @@
-extends CharacterBody2D
 class_name Player
+extends CharacterBody2D
 
 var face_direction="right"
 var current_health:int;
@@ -16,6 +16,7 @@ const UZI = preload("res://resources/weapon/uzi.tres")
 @onready var current_weapon: WeaponBase = $Weapon
 @onready var crosshair: Sprite2D = $Crosshair
 @onready var state_machine: PlayerStateMachine = $StateMachine
+
 
 
 var available_weapons:Array[Weapon_Data]=[]
@@ -53,10 +54,6 @@ func handle_aiming() -> void:
 		animated_sprite.flip_h = false
 	
 	current_weapon.update_direction(face_direction,mouse_pos)
-
-
-
-
 
 func handle_weapon_switch() ->void:
 	current_weapon_index+=1 

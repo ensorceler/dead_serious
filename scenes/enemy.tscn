@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://df8vbp4q4yort" path="res://scripts/enemy/enemy.gd" id="1_md0e3"]
 [ext_resource type="PackedScene" uid="uid://cvhhgw1pht18i" path="res://scenes/health_bar.tscn" id="2_5uy6h"]
-[ext_resource type="Resource" uid="uid://cc1je1v6t8qly" path="res://resources/enemy/zombie.tres" id="2_c4w8v"]
+[ext_resource type="Resource" uid="uid://jmjsf7ufkyxb" path="res://resources/enemy/puncher.tres" id="2_8qclf"]
 [ext_resource type="SpriteFrames" uid="uid://ci4j0rw5xrocd" path="res://resources/enemy/zombie_spriteframes.tres" id="4_5uy6h"]
 [ext_resource type="Script" uid="uid://duj575bmfvv2i" path="res://scripts/enemy/enemy_state_machine.gd" id="5_c4w8v"]
 [ext_resource type="Script" uid="uid://ca64nhxkuq0gg" path="res://scripts/enemy/idle_state.gd" id="6_xwavj"]
@@ -21,11 +21,12 @@ radius = 7.071068
 radius = 112.00446
 
 [node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_md0e3")
-ATTACK_RANGE = 15
-enemy_data = ExtResource("2_c4w8v")
+enemy_data = ExtResource("2_8qclf")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_5uy6h")]
+y_sort_enabled = true
 offset_left = -6.0
 offset_top = -18.0
 offset_right = 8.0
@@ -33,6 +34,7 @@ offset_bottom = -17.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("4_5uy6h")
 animation = &"idle"
@@ -42,10 +44,12 @@ frame_progress = 1.0
 offset = Vector2(5, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_7p1mj")
 
 [node name="HitboxArea" type="Area2D" parent="."]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 4
 
@@ -54,6 +58,7 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_md0e3")
 
 [node name="DetectionArea" type="Area2D" parent="."]
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 2
 
@@ -61,6 +66,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_7p1mj")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initial_state")]
+y_sort_enabled = true
 script = ExtResource("5_c4w8v")
 initial_state = NodePath("Idle")
 
@@ -78,6 +84,17 @@ script = ExtResource("9_w8i8w")
 
 [node name="Death" type="Node2D" parent="StateMachine"]
 script = ExtResource("10_8qclf")
+
+[node name="DebugLabel" type="Label" parent="."]
+visible = false
+y_sort_enabled = true
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 1.0
+avoidance_enabled = true
+debug_enabled = true
 
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]

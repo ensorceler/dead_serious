@@ -11,12 +11,15 @@ var states:Dictionary[String, EnemyState]={}
 func _ready() -> void:
 	await owner.ready
 	
+	
 	var enemy=get_parent()
+	
 	for child:EnemyState in get_children():
 		if child is EnemyState: 
 			states[child.name.to_lower()]=child
 			child.state_machine=self
 			child.enemy=enemy
+		
 		
 	if initial_state && initial_state is EnemyState: 
 		current_state=initial_state 

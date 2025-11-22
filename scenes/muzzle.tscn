@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://broosdlotoikr"]
+
+[ext_resource type="Texture2D" uid="uid://dqqq6f2ifom02" path="res://assets/world_assets/bullet-effects.png" id="1_ynnqp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rscp6"]
+atlas = ExtResource("1_ynnqp")
+region = Rect2(85, 198, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_234bu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rscp6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Muzzle" type="Node2D"]
+
+[node name="MuzzleSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_234bu")
+animation = &"idle"
+autoplay = "idle"

@@ -1,8 +1,9 @@
 extends Area2D
 class_name Bullet
-@export var lifetime:int=3
-@export var speed:int=100
-@export var damage:float
+
+@export var lifetime: int = 3
+@export var speed: int = 100
+@export var damage: float
 
 var direction: Vector2 = Vector2.RIGHT
 
@@ -13,12 +14,13 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
 func _physics_process(delta: float) -> void:
-	position+=speed*direction*delta
+	position += speed * direction * delta
+
 
 func set_direction(new_direction: Vector2) -> void:
 	direction = new_direction.normalized()
