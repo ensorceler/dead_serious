@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ibjqv5dukhxs" path="res://scenes/bullet.tscn" id="2_cjr6y"]
 [ext_resource type="Texture2D" uid="uid://cmn67uv80h11t" path="res://assets/world_assets/GZ2-Weapons_16px.png" id="2_uxn4k"]
 [ext_resource type="Texture2D" uid="uid://bdqfvi6qdcmgy" path="res://assets/world_assets/Shotgun-Shot.png" id="3_5csnh"]
-[ext_resource type="Resource" uid="uid://dl3k721h3a71o" path="res://resources/weapon/shotgun.tres" id="3_b2wdv"]
+[ext_resource type="Resource" uid="uid://dj6tqxl2r0dvs" path="res://resources/weapon/uzi.tres" id="3_b2wdv"]
 [ext_resource type="Texture2D" uid="uid://46c6u8e3otw3" path="res://assets/world_assets/GZ2_Hands_16px.png" id="3_bmw2d"]
 [ext_resource type="AudioStream" uid="uid://b47y263vb438r" path="res://assets/audio/9mm Single.mp3" id="9_234bu"]
 [ext_resource type="PackedScene" uid="uid://broosdlotoikr" path="res://scenes/muzzle.tscn" id="9_b2wdv"]
@@ -499,14 +499,12 @@ bullet_scene = ExtResource("2_cjr6y")
 weapon_data = ExtResource("3_b2wdv")
 
 [node name="Gun" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 position = Vector2(0, -1.4999998)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_kdj1t")
 animation = &"uzi"
 
 [node name="Hand" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 position = Vector2(-4.7683716e-07, 7.1525574e-07)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_oymnn")

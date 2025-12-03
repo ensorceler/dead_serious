@@ -1,4 +1,22 @@
-[gd_resource type="Theme" load_steps=12 format=4 uid="uid://4ikx2hqcab62"]
+[gd_resource type="Theme" load_steps=14 format=4 uid="uid://4ikx2hqcab62"]
+
+[ext_resource type="FontFile" uid="uid://bcomb6i5r5h04" path="res://assets/fonts/LilitaOne-Regular.ttf" id="1_rjbnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjbnf"]
+content_margin_left = 6.0
+content_margin_top = 8.0
+content_margin_right = 6.0
+content_margin_bottom = 8.0
+bg_color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.03839716, 0.038397178, 0.0383971, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_886mr"]
 bg_color = Color(0.22474581, 0.6964364, 0.50102377, 1)
@@ -1366,10 +1384,6 @@ border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
 corner_detail = 6
 anti_aliasing = false
 
@@ -1383,16 +1397,16 @@ border_width_left = 3
 border_width_top = 3
 border_width_bottom = 3
 border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 6
-corner_radius_bottom_left = 6
 corner_detail = 6
 anti_aliasing = false
 
 [resource]
-Button/styles/normal = null
+Button/fonts/font = ExtResource("1_rjbnf")
+Button/styles/normal = SubResource("StyleBoxFlat_rjbnf")
 ExpBar/styles/background = SubResource("StyleBoxFlat_886mr")
 ExpBar/styles/fill = SubResource("StyleBoxFlat_b751m")
-Label/font_sizes/font_size = 25
+Label/font_sizes/font_size = 22
+Label/fonts/font = ExtResource("1_rjbnf")
 Label/styles/normal = SubResource("StyleBoxEmpty_d4nwg")
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_tekt2")
 ProgressBar/colors/font_color = Color(0.95, 0.95, 0.95, 1)

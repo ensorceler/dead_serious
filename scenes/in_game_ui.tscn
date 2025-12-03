@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cu3oiwxjnego6"]
 
-[ext_resource type="Theme" uid="uid://4ikx2hqcab62" path="res://resources/theme/theme.tres" id="1_kplmn"]
+[ext_resource type="Theme" uid="uid://4ikx2hqcab62" path="res://resources/theme/main_theme.tres" id="1_kplmn"]
 
 [sub_resource type="Theme" id="Theme_kplmn"]
 

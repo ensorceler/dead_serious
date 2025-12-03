@@ -30,16 +30,24 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	handle_aiming()
-	handle_shooting()
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("switch_weapon"):
-		handle_weapon_switch()
-
+func _unhandled_input(event: InputEvent)-> void:
+	# Check if event is a key/button press, not mouse motion
+	if event is InputEventKey or event is InputEventMouseButton or event is InputEventJoypadButton:
+		if event.is_action_pressed("shoot"):
+			handle_shooting()
+		if event.is_action_pressed("switch_weapon"):
+			handle_weapon_switch()
+		if event.is_action_pressed("reload"):	
+			handle_reloading()
 
 func handle_shooting():
 	current_weapon.shoot()
 
+func handle_reloading():
+	print("reload weapon")
+	current_weapon.reload()
+	
 func handle_aiming() -> void:
 	var mouse_pos = get_global_mouse_position()
 	crosshair.global_position=mouse_pos

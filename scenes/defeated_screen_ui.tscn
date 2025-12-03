@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg577fif5g1fa"]
+
+[ext_resource type="Theme" uid="uid://4ikx2hqcab62" path="res://resources/theme/main_theme.tres" id="1_coaib"]
+[ext_resource type="Script" uid="uid://b3ah660us6e3x" path="res://scripts/defeated_screen_ui.gd" id="1_wff7c"]
+
+[node name="DefeatedScreenUI" type="CanvasLayer"]
+script = ExtResource("1_wff7c")
+
+[node name="DefeatControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="DefeatControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.9843137, 0.17254902, 0.21176471, 0.13725491)
+
+[node name="CenterContainer" type="CenterContainer" parent="DefeatControl/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefeatControl/ColorRect/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CenterContainer" type="CenterContainer" parent="DefeatControl/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Message" type="Label" parent="DefeatControl/ColorRect/CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_coaib")
+theme_override_font_sizes/font_size = 40
+text = "Defeated !"
+
+[node name="Try Again" type="Button" parent="DefeatControl/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_coaib")
+text = "Try Again"
+
+[node name="MainMenu" type="Button" parent="DefeatControl/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_coaib")
+text = "Continue to Main Menu"

@@ -170,6 +170,7 @@ animations = [{
 size = Vector2(13, 13)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 3
 script = ExtResource("1_dqkch")
 
@@ -179,14 +180,17 @@ sprite_frames = SubResource("SpriteFrames_31cv2")
 animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+y_sort_enabled = true
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="Weapon" parent="." instance=ExtResource("2_tuyoq")]
+y_sort_enabled = true
 position = Vector2(17, 0)
 
 [node name="Crosshair" type="Sprite2D" parent="."]
 z_as_relative = false
+y_sort_enabled = true
 position = Vector2(42, -14)
 texture = ExtResource("4_dqkch")
 region_enabled = true

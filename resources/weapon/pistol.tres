@@ -11,7 +11,9 @@ region = Rect2(1, 20, 14, 9)
 [resource]
 script = ExtResource("1_rasn0")
 fire_rate = 0.2
-damage = 50
+bullet_damage = 10
+max_ammo = 12
+reserve_ammo = 50
 gun_spriteframes = ExtResource("1_ofpfb")
 gun_animation = "gun"
 shoot_animation = "shoot"

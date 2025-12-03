@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://btkylempnwcau"]
 
 [ext_resource type="Script" uid="uid://ubqmsie2yo77" path="res://scripts/player_ui.gd" id="1_48xfa"]
-[ext_resource type="Theme" uid="uid://4ikx2hqcab62" path="res://resources/theme/theme.tres" id="1_jkj6h"]
-[ext_resource type="Texture2D" uid="uid://cmn67uv80h11t" path="res://assets/world_assets/GZ2-Weapons_16px.png" id="2_sk4pr"]
+[ext_resource type="Theme" uid="uid://4ikx2hqcab62" path="res://resources/theme/main_theme.tres" id="1_jkj6h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkj6h"]
 bg_color = Color(0.16138223, 0.7040571, 0.47564405, 1)
@@ -14,17 +13,20 @@ corner_radius_top_left = 6
 corner_radius_bottom_left = 6
 anti_aliasing = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sk4pr"]
-atlas = ExtResource("2_sk4pr")
-region = Rect2(34, 68, 26, 8)
+[sub_resource type="Theme" id="Theme_48xfa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xfa"]
+bg_color = Color(0.08235294, 0.08235294, 0.08235294, 0)
+border_blend = true
 
 [node name="PlayerUI" type="CanvasLayer"]
 script = ExtResource("1_48xfa")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(180, 0)
-offset_right = 180.0
-offset_bottom = 60.0
+clip_contents = true
+custom_minimum_size = Vector2(160, 0)
+offset_right = 160.0
+offset_bottom = 149.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 10
@@ -34,14 +36,16 @@ layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="Health" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 27)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_jkj6h")
 step = 1.0
 value = 96.0
+show_percentage = false
 
 [node name="Exp" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
 size_flags_vertical = 1
@@ -51,13 +55,27 @@ value = 30.0
 show_percentage = false
 
 [node name="Weapon" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(70, 40)
+custom_minimum_size = Vector2(160, 40)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource("1_jkj6h")
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Weapon"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Weapon"]
 layout_mode = 2
-texture = SubResource("AtlasTexture_sk4pr")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Weapon/HBoxContainer"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
 stretch_mode = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/Weapon/HBoxContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme = SubResource("Theme_48xfa")
+theme_override_styles/panel = SubResource("StyleBoxFlat_48xfa")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Weapon/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_jkj6h")
+text = "30 \\ 60"

@@ -34,13 +34,10 @@ offset_bottom = -17.0
 metadata/_edit_use_anchors_ = true
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
-y_sort_enabled = true
 scale = Vector2(0.7, 0.7)
 sprite_frames = ExtResource("4_5uy6h")
-animation = &"idle"
+animation = &"walk"
 autoplay = "walk"
-frame = 1
-frame_progress = 1.0
 offset = Vector2(5, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -94,7 +91,6 @@ offset_bottom = 23.0
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 1.0
 avoidance_enabled = true
-debug_enabled = true
 
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
 [connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
