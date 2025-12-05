@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CharacterBodyPart" load_steps=2 format=3 uid="uid://iofqives6c5a"]
+
+[ext_resource type="Script" uid="uid://bmjvxis5t6wdm" path="res://resources/character/character_body_part.gd" id="1_mhihq"]
+
+[resource]
+script = ExtResource("1_mhihq")
+body_part_name = "Head"
+metadata/_custom_type_script = "uid://bmjvxis5t6wdm"

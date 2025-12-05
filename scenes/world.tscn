@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=4 uid="uid://cuw554x0fjanq"]
 
-[ext_resource type="Texture2D" uid="uid://do08060g7tm3a" path="res://assets/world_assets/BG-GrassPatches.png" id="1_i7141"]
-[ext_resource type="Texture2D" uid="uid://1nkjbyug1kde" path="res://assets/world_assets/BG-Floor.png" id="2_4mrxx"]
+[ext_resource type="Texture2D" uid="uid://s1kvno7mi03b" path="res://assets/world_assets/BG-GrassPatches.png" id="1_i7141"]
+[ext_resource type="Texture2D" uid="uid://b467do6i5wo6j" path="res://assets/world_assets/BG-Floor.png" id="2_4mrxx"]
 [ext_resource type="TileSet" uid="uid://bipim4a7uyjja" path="res://resources/world_tilset.tres" id="3_w7kh3"]
-[ext_resource type="PackedScene" uid="uid://dcdjs4j6yb3f0" path="res://scenes/player.tscn" id="5_e3hyu"]
+[ext_resource type="PackedScene" uid="uid://bmykfnydujnw5" path="res://scenes/character.tscn" id="5_i7141"]
 [ext_resource type="PackedScene" uid="uid://dg577fif5g1fa" path="res://scenes/defeated_screen_ui.tscn" id="7_4mrxx"]
 [ext_resource type="PackedScene" uid="uid://b0fsdmg2rlb4b" path="res://scenes/enemy_spawner.tscn" id="7_i7141"]
 [ext_resource type="PackedScene" uid="uid://btkylempnwcau" path="res://scenes/player_ui.tscn" id="8_4mrxx"]
@@ -846,12 +846,11 @@ tile_set = ExtResource("3_w7kh3")
 [node name="EnemySpawner" parent="GameObjects" instance=ExtResource("7_i7141")]
 position = Vector2(529, 507)
 
-[node name="Player" parent="GameObjects" instance=ExtResource("5_e3hyu")]
-position = Vector2(373, 424)
+[node name="Character" parent="GameObjects" instance=ExtResource("5_i7141")]
+position = Vector2(45, 166)
 
-[node name="Camera2D" type="Camera2D" parent="GameObjects/Player"]
-position = Vector2(0, -5)
-zoom = Vector2(2.5, 2.5)
+[node name="Camera2D" type="Camera2D" parent="GameObjects/Character"]
+zoom = Vector2(3, 3)
 
 [node name="NavigationRegions" type="Node2D" parent="."]
 

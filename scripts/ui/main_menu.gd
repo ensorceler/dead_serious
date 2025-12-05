@@ -3,7 +3,9 @@ extends Control
 
 
 func _ready()-> void:
-	pass
+	play.button_pressed=true
+	play.toggled.emit()
+	
 
 
 func _on_play_pressed() -> void:

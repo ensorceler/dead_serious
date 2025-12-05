@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Weapon_Data" load_steps=5 format=3 uid="uid://dj6tqxl2r0dvs"]
 
 [ext_resource type="SpriteFrames" uid="uid://2u5gxtfdcym1" path="res://resources/weapon/uzi_sprite_frames.tres" id="1_acdww"]
-[ext_resource type="Texture2D" uid="uid://cmn67uv80h11t" path="res://assets/world_assets/GZ2-Weapons_16px.png" id="1_cqwes"]
+[ext_resource type="Texture2D" uid="uid://bis86yybs4okv" path="res://assets/world_assets/GZ2-Weapons_16px.png" id="1_cqwes"]
 [ext_resource type="Script" uid="uid://c0ul022xhwad2" path="res://resources/weapon/weapon_data.gd" id="1_p2woo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_555hn"]

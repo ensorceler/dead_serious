@@ -4,3 +4,6 @@
 
 # ignore assets
 assets/
+
+*.import
+.DS_Store

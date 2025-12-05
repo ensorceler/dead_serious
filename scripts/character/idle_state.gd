@@ -1,5 +1,5 @@
-class_name IdleState 
-extends PlayerState
+class_name CharacterIdleState
+extends CharacterState
 
 
 func _init():
@@ -10,9 +10,9 @@ func _init():
 func enter():
 	#print("entering idle state")
 	#print("parent ",get_parent())
-	if player.ready: 
-		player.animated_sprite.play("idle")
-		player.velocity = Vector2.ZERO
+	if character.ready: 
+		character.play_animation("idle")
+		character.velocity = Vector2.ZERO
 
 	
 	

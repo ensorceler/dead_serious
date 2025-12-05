@@ -1,8 +1,8 @@
 [gd_resource type="SpriteFrames" load_steps=31 format=3 uid="uid://ci4j0rw5xrocd"]
 
-[ext_resource type="Texture2D" uid="uid://s7bves4o8lo4" path="res://assets/world_assets/Zombie/Zombie-Atk.png" id="1_i2akv"]
-[ext_resource type="Texture2D" uid="uid://b1o01dddbpd01" path="res://assets/world_assets/Zombie/Zombie-Dead.png" id="2_f2n21"]
-[ext_resource type="Texture2D" uid="uid://cejckosa0tqy" path="res://assets/world_assets/Zombie/Zombie-Walk.png" id="3_p2lb6"]
+[ext_resource type="Texture2D" uid="uid://frd0jvq31gy" path="res://assets/world_assets/Zombie/Zombie-Atk.png" id="1_i2akv"]
+[ext_resource type="Texture2D" uid="uid://cgltifhunfhxu" path="res://assets/world_assets/Zombie/Zombie-Dead.png" id="2_f2n21"]
+[ext_resource type="Texture2D" uid="uid://btqjfs32gjx57" path="res://assets/world_assets/Zombie/Zombie-Walk.png" id="3_p2lb6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qg7fs"]
 atlas = ExtResource("1_i2akv")

@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=78 format=3 uid="uid://8abq211y58in"]
 
-[ext_resource type="Texture2D" uid="uid://bdqfvi6qdcmgy" path="res://assets/world_assets/Shotgun-Shot.png" id="1_cuir3"]
-[ext_resource type="Texture2D" uid="uid://cdtdotg3eskop" path="res://assets/world_assets/Shotgun-Reload.png" id="2_rfgfo"]
+[ext_resource type="Texture2D" uid="uid://d4fq2n8n88yvr" path="res://assets/world_assets/Shotgun-Shot.png" id="1_cuir3"]
+[ext_resource type="Texture2D" uid="uid://ctssvn3tph2h2" path="res://assets/world_assets/Shotgun-Reload.png" id="2_rfgfo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n3x3g"]
 atlas = ExtResource("1_cuir3")
