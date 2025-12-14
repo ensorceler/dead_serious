@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dead Serious"
-run/main_scene="uid://dwynitr6n6j7k"
+run/main_scene="uid://cuw554x0fjanq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -27,8 +27,9 @@ settings/stdout/verbose_stdout=true
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/initial_position_type=0
 window/size/borderless=true
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
